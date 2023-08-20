@@ -82,12 +82,33 @@ let newPeople = [
 ];
 
 for (const name of newPeople) {
-    if(typeof name === 'array'){
-        for (const innerName of name) {
-            console.log(innerName)
+    if(Array.isArray(name)){  //Array.isArray(name) is used to check whether given value is array or not
+        for (const innerName of name) { // to log out nested array also
+            // console.log(innerName)
         }
     } else {
-        console.log(name); // will directly log the values of array    
+        // console.log(name); // will directly log the values of array    
     }
-    
 }
+
+let object1 = {
+    title: 'Harry Potter',
+    anotherObject: {
+        Name: 'Noob',
+        Experience: 'No Exp!!'
+    },
+    schooling: 'xyz school'
+}
+
+// **************** For In Loop ******************
+
+for (const key in object1) {
+    if (typeof object1[key] === 'object'){
+        for (const innerkey in object1[key]) {
+            console.log(`${innerkey} :- ${object1[key][innerkey]}`)
+        }
+    } else {
+        console.log(`${key} :- ${object1[key]}`)
+    }
+}
+
