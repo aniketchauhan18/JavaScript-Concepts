@@ -13,7 +13,10 @@ let obj = {
     hobbies: "Web App Development",
 }
 // console.log(obj);
+
+
 // 1.1 Iterating Objects using traditional for loop;
+
 // for (let index = 0; index < Object.keys(obj).length; index++) {
 //     const element = obj[Object.keys(obj)[index]]; // object.keys(obj) shows all the content inside obj
 //     console.log(element);
@@ -22,7 +25,8 @@ let obj = {
 
 // 1.2 Iterating an object using for in loop
 for (const key in obj) {
-    // console.log(key); // show all the properties of the object like name, language etc
+    // console.log(key); // show all the properties of the object like name, language etc.
+    
     // console.log(obj[key]); //  show all the values of the object properties
     // console.log(`${key} :- ${obj[key]}`) // Show all both properties and values
 }
