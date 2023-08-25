@@ -48,9 +48,54 @@ const promiseFour = new Promise(function(resolve, reject){
 promiseFour
 .then((user) => {
     console.log(user);
-    return user.userName // the value from this dot then will return to lower then 
+    return user.userName // the value from this dot then will return to lower dot then 
 }).then((username) => { // used in database connection
     console.log(username)
 }).catch(function(error){
     console.log(error);
 }).finally(()=> console.log("Finally the promsise is either resolved or rejected")) // using finally to tell whether the required work is done or not
+
+const promiseFive = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        let error = true;
+
+        if(!error){
+            resolve({userName: 'JavaScript', password: 13125})
+        } else {
+            reject('Error: JS went wrong')
+        }
+    }, 1000)
+});
+
+async function consumePromiseFive() {
+    try {
+        const response = await promiseFive;
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+}
+consumePromiseFive();
+
+// promiseFive.
+// then((user) => {
+//     console.log(user);
+//     return user.userName;
+// }).then((username) => {
+//     console.log(username)
+// }).catch(function(error){
+//     console.log(error)
+// }).finally(()=> console.log("Finally the promise is either resolved or rejected"));
+
+// async function getAllUsers(){
+//     try {
+//         const response  = await fetch('https://jsonplaceholder.typicode.com/users');
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.log("E", error);
+//     }
+// };
+// getAllUsers();
+
+fetch('https://jsonplaceholder.typicode.com/users')
